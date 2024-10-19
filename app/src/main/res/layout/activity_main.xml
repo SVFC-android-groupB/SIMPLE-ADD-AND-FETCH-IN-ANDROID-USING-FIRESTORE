@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Product ID"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:paddingHorizontal="20dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp"
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Product Name"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:paddingHorizontal="20dp"
         android:layout_marginHorizontal="20dp"
         />
@@ -34,26 +34,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Product Category"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:paddingHorizontal="20dp"
         android:layout_marginHorizontal="20dp"
         />
 
     <EditText
-        android:id="@+id/et_productPrize"
+        android:id="@+id/et_productPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Product Prize"
-        android:textSize="15sp"
+        android:hint="Product Price"
+        android:textSize="20sp"
         android:paddingHorizontal="20dp"
         android:layout_marginHorizontal="20dp"
         />
 
     <Button
-        android:id="@+id/btn_Submit"
+        android:id="@+id/btn_Add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="Add"
         android:layout_marginHorizontal="100dp"
         />
 
