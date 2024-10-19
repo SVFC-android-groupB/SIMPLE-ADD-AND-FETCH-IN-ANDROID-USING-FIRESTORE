@@ -9,6 +9,7 @@
     android:orientation="vertical">
 
     <EditText
+        android:id="@+id/et_productId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Product ID"
@@ -19,6 +20,7 @@
         />
 
     <EditText
+        android:id="@+id/et_productName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Product Name"
@@ -28,6 +30,7 @@
         />
 
     <EditText
+        android:id="@+id/et_productCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Product Category"
@@ -37,12 +40,40 @@
         />
 
     <EditText
+        android:id="@+id/et_productPrize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Product Prize"
         android:textSize="15sp"
         android:paddingHorizontal="20dp"
         android:layout_marginHorizontal="20dp"
+        />
+
+    <Button
+        android:id="@+id/btn_Submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginHorizontal="100dp"
+        />
+
+    <Button
+        android:id="@+id/btn_GetProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Products"
+        android:layout_marginHorizontal="100dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_ProductList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="17sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:paddingHorizontal="20dp"
         />
 
 </LinearLayout>
