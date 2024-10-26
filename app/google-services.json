@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "132019498976",
+    "project_id": "androidgetterandsetterfirebase",
+    "storage_bucket": "androidgetterandsetterfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132019498976:android:b69c306f5c563c7bb40585",
+        "android_client_info": {
+          "package_name": "com.example.androidgetterandsetter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASe3KX0A1SAEpdPAMEmgMN4bwsdYxEw1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 package com.example.androidgetterandsetter;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,6 +10,8 @@ import java.util.List;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     StringBuilder stringBuilder;
 
+    FirebaseFirestore firestore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         stringBuilder = new StringBuilder();
         productObject = new Product();
+        firestore = FirebaseFirestore.getInstance();
 
         id = findViewById(R.id.et_productId);
         name = findViewById(R.id.et_productName);
@@ -38,21 +44,35 @@ public class MainActivity extends AppCompatActivity {
         getList = findViewById(R.id.btn_GetProduct);
         list = findViewById(R.id.tv_ProductList);
 
-        //btn function when clicked
+        //btn add function when clicked
         add.setOnClickListener(v ->toAdd());
+
+
+        //btn get list function
+        getList.setOnClickListener(v ->getList());
     }
 
+    //add function
     public void toAdd(){
         productObject.setId(Integer.parseInt(id.getText().toString()));
         productObject.setName(name.getText().toString());
         productObject.setCategory(category.getText().toString());
         productObject.setPrize(Integer.parseInt(price.getText().toString()));
 
-        stringBuilder.append("\n\n Name: " + productObject.getName());
-        stringBuilder.append("\n Id: " + productObject.getId());
-        stringBuilder.append("\n Category: " + productObject.getCategory());
-        stringBuilder.append("\n Price: " + productObject.getPrize());
+        firestore.collection("Product").add(productObject).addOnSuccessListener(document -> {
+            stringBuilder.append("\n\n Name: " + productObject.getName());
+            stringBuilder.append("\n Id: " + productObject.getId());
+            stringBuilder.append("\n Category: " + productObject.getCategory());
+            stringBuilder.append("\n Price: " + productObject.getPrize());
 
-        list.setText(stringBuilder.toString());
+            list.setText(stringBuilder.toString());
+        }).addOnFailureListener(e->{
+            Log.e("MAIN", e.getMessage());
+        });
+    }
+
+    //getList function
+    private void getList(){
+
     }
 }
