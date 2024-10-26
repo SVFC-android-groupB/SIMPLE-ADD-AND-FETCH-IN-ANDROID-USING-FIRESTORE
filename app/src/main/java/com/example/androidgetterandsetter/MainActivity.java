@@ -12,6 +12,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,6 +74,28 @@ public class MainActivity extends AppCompatActivity {
 
     //getList function
     private void getList(){
+        StringBuilder stringBuilder2 = new StringBuilder();
+        firestore.collection("Product")
+                .get()
+                .addOnCompleteListener(v->{
 
+                    if(v.isSuccessful()){
+                        for(QueryDocumentSnapshot document: v.getResult()){
+                            Product product = document.toObject(Product.class);
+                            stringBuilder2.append("\n\n Name: " + product.getName());
+                            stringBuilder2.append("\n Id: " + product.getId());
+                            stringBuilder2.append("\n Category: " + product.getCategory());
+                            stringBuilder2.append("\n Price: " + product.getPrize());
+                        }
+
+                        list.setText(stringBuilder2.toString());
+
+                    }else{
+                        Log.e("MAIN",v.getException().getMessage());
+                    }
+
+                }).addOnFailureListener(e->{
+                    Log.e("MAIN", e.getMessage());
+                });
     }
 }
